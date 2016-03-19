@@ -51,9 +51,10 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
 		String output = "";
 		Process p;
 		try {
-			p = Runtime.getRuntime()
-					.exec("/Users/Chaiyong/Documents/es_exp/./scripts/eval_dfr.sh tests_extracted/ eval_dfr " + sizeOfN
-							+ " " + normMode + " eval_dfr/ " + basicModel + " " + afterEffect + " " + dfrNormalization);
+            String command = "/home/cragkhit/es_exp/scripts/eval_dfr.sh tests_extracted/ eval_dfr " + sizeOfN
+                            + " " + normMode + " eval_dfr/ " + basicModel + " " + afterEffect + " " + dfrNormalization;
+            // System.out.println(command);
+			p = Runtime.getRuntime().exec(command);
 			p.waitFor();
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
