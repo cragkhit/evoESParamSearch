@@ -20,6 +20,11 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
 	private String[] basicModelArr = { "be", "d", "g", "if", "in", "ine", "p" };
 	private String[] afterEffectArr = { "no", "b", "l" };
 	private String[] dfrNormalizationArr = { "no", "h1", "h2", "h3", "z" };
+	private static String HOMEDIR="/Users/Chaiyong/Documents/es_exp/";
+	private static String SCRIPT="scripts/eval_dfr.sh";
+	private static String INPUTDIR="tests_renamed";
+	private static String INDEXNAME="dfr";
+	private static String OUTPUTDIR="eval_dfr";
 
 	public void evaluate(final EvolutionState state, final Individual ind, final int subpopulation,
 			final int threadnum) {
@@ -53,9 +58,10 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
 		System.out.println(sizeOfN + "," + normMode + "," + basicModel + "," + afterEffect + "," + dfrNormalization);
 
 		try {
-			ProcessBuilder pb = new ProcessBuilder("./scripts/eval_dfr.sh", "tests_extracted/", "eval_dfr",
-					String.valueOf(sizeOfN), normMode, "eval_dfr/", basicModel, afterEffect, dfrNormalization);
-			pb.directory(new File("/home/cragkhit/es_exp/"));
+			ProcessBuilder pb = new ProcessBuilder(SCRIPT, INPUTDIR, INDEXNAME,
+					String.valueOf(sizeOfN), normMode, OUTPUTDIR, basicModel, 
+					afterEffect, dfrNormalization, HOMEDIR);
+			pb.directory(new File(HOMEDIR));
 			Process p = pb.start();
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
