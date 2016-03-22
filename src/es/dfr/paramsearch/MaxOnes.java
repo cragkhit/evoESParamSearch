@@ -53,16 +53,10 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
 		System.out.println(sizeOfN + "," + normMode + "," + basicModel + "," + afterEffect + "," + dfrNormalization);
 
 		String output = "";
-//		Process p;
 		try {
-//			p = Runtime.getRuntime()
-//					.exec("/Users/Chaiyong/Documents/es_exp/scripts/eval_dfr.sh /Users/Chaiyong/Documents/es_exp/tests_extracted/ eval_dfr " + sizeOfN
-//							+ " " + normMode + " /Users/Chaiyong/Documents/es_exp/eval_dfr/ " + basicModel + " " + afterEffect + " " + dfrNormalization);
-//			p.waitFor();
-			
 			ProcessBuilder pb = new ProcessBuilder("./scripts/eval_dfr.sh", "tests_extracted/", "eval_dfr",
 					String.valueOf(sizeOfN), normMode, "eval_dfr/", basicModel, afterEffect, dfrNormalization);
-			pb.directory(new File("/Users/Chaiyong/Documents/es_exp/"));
+			pb.directory(new File("/home/cragkhit/es_exp/"));
 			Process p = pb.start();
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
