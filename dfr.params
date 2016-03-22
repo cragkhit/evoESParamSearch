@@ -12,7 +12,7 @@ eval		= ec.simple.SimpleEvaluator
 stat		= ec.simple.SimpleStatistics
 exch		= ec.simple.SimpleExchanger
 
-generations		= 200
+generations		= 20
 quit-on-run-complete	= true
 checkpoint		= false
 checkpoint-prefix	= ec
@@ -22,31 +22,40 @@ stat.file		= $out.stat
 
 pop.subpops		= 1
 pop.subpop.0		= ec.Subpopulation
-
-pop.subpop.0.size 		= 100
+pop.subpop.0.size 		= 50
 pop.subpop.0.duplicate-retries 	= 0
 pop.subpop.0.species		= ec.vector.IntegerVectorSpecies
 pop.subpop.0.species.ind	= ec.vector.IntegerVectorIndividual
 pop.subpop.0.species.fitness = ec.simple.SimpleFitness
-pop.subpop.0.species.genome-size	= 5
+pop.subpop.0.species.genome-size	= 10
 pop.subpop.0.species.crossover-type	= one
 pop.subpop.0.species.mutation-type  = reset
-pop.subpop.0.species.mutation-prob	= 0.01
+pop.subpop.0.species.mutation-prob	= 0.1
 
 # Note that min-gene and max-gene are defined in the SPECIES, not in the INDIVIDUAL
 pop.subpop.0.species.min-gene = 0
 pop.subpop.0.species.max-gene = 99
 # First gene
 pop.subpop.0.species.min-gene.0	= 0
-pop.subpop.0.species.max-gene.0 = 6
+pop.subpop.0.species.max-gene.0 = 1
 pop.subpop.0.species.min-gene.1	= 0
-pop.subpop.0.species.max-gene.1 = 2
+pop.subpop.0.species.max-gene.1 = 1
 pop.subpop.0.species.min-gene.2	= 0
-pop.subpop.0.species.max-gene.2 = 4
+pop.subpop.0.species.max-gene.2 = 1
 pop.subpop.0.species.min-gene.3	= 0
-pop.subpop.0.species.max-gene.3 = 62
+pop.subpop.0.species.max-gene.3 = 1
 pop.subpop.0.species.min-gene.4	= 0
-pop.subpop.0.species.max-gene.4 = 3
+pop.subpop.0.species.max-gene.4 = 1
+pop.subpop.0.species.min-gene.5	= 0
+pop.subpop.0.species.max-gene.5 = 1
+pop.subpop.0.species.min-gene.6	= 0
+pop.subpop.0.species.max-gene.6 = 6
+pop.subpop.0.species.min-gene.7	= 0
+pop.subpop.0.species.max-gene.7 = 2
+pop.subpop.0.species.min-gene.8	= 0
+pop.subpop.0.species.max-gene.8 = 4
+pop.subpop.0.species.min-gene.9	= 0
+pop.subpop.0.species.max-gene.9 = 3
 
 pop.subpop.0.species.pipe			= ec.vector.breed.VectorMutationPipeline
 pop.subpop.0.species.pipe.source.0		= ec.vector.breed.VectorCrossoverPipeline
