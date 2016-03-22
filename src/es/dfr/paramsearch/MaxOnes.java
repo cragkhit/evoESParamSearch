@@ -52,7 +52,6 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
 				+ ind2.genome[8]  + "|" + ind2.genome[9] + "] = ");
 		System.out.println(sizeOfN + "," + normMode + "," + basicModel + "," + afterEffect + "," + dfrNormalization);
 
-		String output = "";
 		try {
 			ProcessBuilder pb = new ProcessBuilder("./scripts/eval_dfr.sh", "tests_extracted/", "eval_dfr",
 					String.valueOf(sizeOfN), normMode, "eval_dfr/", basicModel, afterEffect, dfrNormalization);
