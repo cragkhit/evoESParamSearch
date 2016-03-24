@@ -11,7 +11,7 @@ import ec.simple.*;
 import ec.util.*;
 import ec.vector.*;
 
-public class MaxOnes extends Problem implements SimpleProblemForm {
+public class DFR extends Problem implements SimpleProblemForm {
 	// ind is the individual to be evaluated.
 	// We're given state and threadnum primarily so we
 	// have access to a random number generator

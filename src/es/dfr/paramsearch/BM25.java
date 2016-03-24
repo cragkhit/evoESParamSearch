@@ -11,7 +11,7 @@ import ec.simple.*;
 import ec.util.*;
 import ec.vector.*;
 
-public class MaxOnes extends Problem implements SimpleProblemForm {
+public class BM25 extends Problem implements SimpleProblemForm {
 	// ind is the individual to be evaluated.
 	// We're given state and threadnum primarily so we
 	// have access to a random number generator
@@ -24,8 +24,8 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
 	private String[] dfrNormalizationArr = { "no", "h1", "h2", "h3", "z" };
     // BM25 parameters
     // default k1 is 1.2
-    private float[] k1 = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4};
-	private float[] b = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 1.0};
+    private double[] k1 = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4};
+	private double[] b = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 1.0};
 	private String[] discoutOverlap = { "true", "false" };
 	
     private static String HOMEDIR="/home/cragkhit/es_exp/";
@@ -57,21 +57,21 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
             && ind2.genome[3]==0 && ind2.genome[4]==0 && ind2.genome[5]==0)
             normMode = "x";
 		
-		String k1Val = k1[ind2.genome[6]];
-		String bVal = afterEffectArr[ind2.genome[7]];
-		String dfrNormalization = dfrNormalizationArr[ind2.genome[8]];
-		int sizeOfN = ind2.genome[9] + 2;
+		double k1Val = k1[ind2.genome[6]];
+		double bVal = b[ind2.genome[7]];
+		String discOv = discoutOverlap[ind2.genome[8]];
+		int sizeOfN = ind2.genome[9];
 		
 		System.out.print("[" + ind2.genome[0] + "," + ind2.genome[1] + "," 
 				+ ind2.genome[2] + "," + ind2.genome[3] + "," + ind2.genome[4] + "," 
 				+ ind2.genome[5] + "|" + ind2.genome[6] + "|" + ind2.genome[7] + "|" 
 				+ ind2.genome[8]  + "|" + ind2.genome[9] + "] = ");
-		System.out.println(sizeOfN + "," + normMode + "," + basicModel + "," + afterEffect + "," + dfrNormalization);
+		System.out.println(sizeOfN + "," + normMode + "," + String.valueOf(k1Val) + "," + String.valueOf(bVal) + "," + discOv);
 
 		try {
 			ProcessBuilder pb = new ProcessBuilder(SCRIPT, INPUTDIR, INDEXNAME,
-					String.valueOf(sizeOfN), normMode, OUTPUTDIR, basicModel, 
-					afterEffect, dfrNormalization, HOMEDIR);
+					String.valueOf(sizeOfN), normMode, OUTPUTDIR, String.valueOf(k1Val), 
+					String.valueOf(bVal), discOv, HOMEDIR);
 			pb.directory(new File(HOMEDIR));
 			Process p = pb.start();
 
