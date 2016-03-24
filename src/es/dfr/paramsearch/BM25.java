@@ -28,7 +28,7 @@ public class BM25 extends Problem implements SimpleProblemForm {
 	private double[] b = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.9, 1.0};
 	private String[] discoutOverlap = { "true", "false" };
 	
-    private static String HOMEDIR="/home/cragkhit/es_exp/";
+    private static String HOMEDIR="/Users/Chaiyong/Documents/es_exp/";
 	private static String SCRIPT="scripts/eval_bm25.sh";
 	private static String INPUTDIR="methods";
 	private static String INDEXNAME="bm25";

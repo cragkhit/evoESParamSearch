@@ -1,6 +1,7 @@
 breedthreads	= auto
 evalthreads	= auto
-# seed.0		= 4357
+# seed.0	= -1453003562 
+# seed.0 = 4357 
 seed.0 = time
 
 state		= ec.simple.SimpleEvolutionState
