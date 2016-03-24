@@ -70,4 +70,6 @@ pop.subpop.0.species.pipe.source.0.source.0.size	= 2
 pop.subpop.0.species.pipe.source.0.source.1.size	= 2
 select.tournament.size		= 2
 
+breed.elite-fraction.0 = 0.25
+
 eval.problem		= es.dfr.paramsearch.BM25
