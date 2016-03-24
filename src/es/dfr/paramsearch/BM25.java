@@ -57,8 +57,8 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
             && ind2.genome[3]==0 && ind2.genome[4]==0 && ind2.genome[5]==0)
             normMode = "x";
 		
-		String basicModel = basicModelArr[ind2.genome[6]];
-		String afterEffect = afterEffectArr[ind2.genome[7]];
+		String k1Val = k1[ind2.genome[6]];
+		String bVal = afterEffectArr[ind2.genome[7]];
 		String dfrNormalization = dfrNormalizationArr[ind2.genome[8]];
 		int sizeOfN = ind2.genome[9] + 2;
 		
