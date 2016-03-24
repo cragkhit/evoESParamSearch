@@ -11,13 +11,17 @@ import ec.simple.*;
 import ec.util.*;
 import ec.vector.*;
 
-public class BM25 extends Problem implements SimpleProblemForm {
+public class MaxOnes extends Problem implements SimpleProblemForm {
 	// ind is the individual to be evaluated.
 	// We're given state and threadnum primarily so we
 	// have access to a random number generator
 	// (in the form: state.random[threadnum] )
 	// and to the output facility
 
+	// DFR parameters
+    private String[] basicModelArr = { "be", "d", "g", "if", "in", "ine", "p" };
+	private String[] afterEffectArr = { "no", "b", "l" };
+	private String[] dfrNormalizationArr = { "no", "h1", "h2", "h3", "z" };
     // BM25 parameters
     // default k1 is 1.2
     private float[] k1 = { 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.1, 2.2, 2.3, 2.4};
