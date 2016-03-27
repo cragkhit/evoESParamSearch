@@ -22,7 +22,7 @@ public class MaxOnes extends Problem implements SimpleProblemForm {
 	private String[] dfrNormalizationArr = { "no", "h1", "h2", "h3", "z" };
 	private static String HOMEDIR="/Users/Chaiyong/Documents/es_exp/";
 	private static String SCRIPT="scripts/eval_dfr.sh";
-	private static String INPUTDIR="tests_renamed";
+	private static String INPUTDIR="methods";
 	private static String INDEXNAME="dfr";
 	private static String OUTPUTDIR="eval_dfr";
 

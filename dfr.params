@@ -1,7 +1,7 @@
-breedthreads	= auto
-evalthreads	= auto
-# seed.0		= 4357
-seed.0 = time
+breedthreads	= 1
+evalthreads	= 1
+seed.0		= -1288591512
+# seed.0 = time 
 
 state		= ec.simple.SimpleEvolutionState
 
@@ -55,8 +55,8 @@ pop.subpop.0.species.min-gene.7	= 0
 pop.subpop.0.species.max-gene.7 = 2
 pop.subpop.0.species.min-gene.8	= 0
 pop.subpop.0.species.max-gene.8 = 4
-pop.subpop.0.species.min-gene.9	= 0
-pop.subpop.0.species.max-gene.9 = 3
+pop.subpop.0.species.min-gene.9	= 2
+pop.subpop.0.species.max-gene.9 = 5
 
 pop.subpop.0.species.pipe			= ec.vector.breed.VectorMutationPipeline
 pop.subpop.0.species.pipe.source.0		= ec.vector.breed.VectorCrossoverPipeline
@@ -71,4 +71,4 @@ select.tournament.size		= 2
 
 breed.elite-fraction.0 = 0.25
 
-eval.problem		= es.dfr.paramsearch.MaxOnes
+eval.problem		= es.dfr.paramsearch.DFR

@@ -17,12 +17,19 @@ public class DFR extends Problem implements SimpleProblemForm {
 	// have access to a random number generator
 	// (in the form: state.random[threadnum] )
 	// and to the output facility
+	
+	// 0 0 0 0 0 1 5 2 1 2 = w, ine, l, h1, 3
+	// 0 0 1 0 0 1 5 2 1 1 = kw, ine, l, h1, 2 0.9679999999999999
+	// 0 0 0 0 0 1 4 2 1 1 = w, in, l, h1, 2
+	// 0 0 0 0 0 1 2 2 2 5 = w, g, l, h2, 5
+	// 1 0 0 1 0 1 5 2 1 5 = dpw, ine, l, h1, 5
+	
 	private String[] basicModelArr = { "be", "d", "g", "if", "in", "ine", "p" };
 	private String[] afterEffectArr = { "no", "b", "l" };
 	private String[] dfrNormalizationArr = { "no", "h1", "h2", "h3", "z" };
 	private static String HOMEDIR="/Users/Chaiyong/Documents/es_exp/";
 	private static String SCRIPT="scripts/eval_dfr.sh";
-	private static String INPUTDIR="tests_renamed";
+	private static String INPUTDIR="methods";
 	private static String INDEXNAME="dfr";
 	private static String OUTPUTDIR="eval_dfr";
 
@@ -49,14 +56,14 @@ public class DFR extends Problem implements SimpleProblemForm {
 		String basicModel = basicModelArr[ind2.genome[6]];
 		String afterEffect = afterEffectArr[ind2.genome[7]];
 		String dfrNormalization = dfrNormalizationArr[ind2.genome[8]];
-		int sizeOfN = ind2.genome[9] + 1;
+		int sizeOfN = ind2.genome[9];
 		
 		System.out.print("[" + ind2.genome[0] + "," + ind2.genome[1] + "," 
 				+ ind2.genome[2] + "," + ind2.genome[3] + "," + ind2.genome[4] + "," 
 				+ ind2.genome[5] + "|" + ind2.genome[6] + "|" + ind2.genome[7] + "|" 
 				+ ind2.genome[8]  + "|" + ind2.genome[9] + "] = ");
 		System.out.println(sizeOfN + "," + normMode + "," + basicModel + "," + afterEffect + "," + dfrNormalization);
-
+		
 		try {
 			ProcessBuilder pb = new ProcessBuilder(SCRIPT, INPUTDIR, INDEXNAME,
 					String.valueOf(sizeOfN), normMode, OUTPUTDIR, basicModel, 
